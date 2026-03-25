@@ -1,17 +1,17 @@
 // ── Cinematic Telugu Preloader ──────────────────────────────────────────────
 (function initCinematicPreloader() {
 
-    const preloader    = document.getElementById('preloader');
-    const percentEl    = document.getElementById('load-percent');
-    const fillEl       = document.getElementById('progressFill');
-    const statusEl     = document.getElementById('statusMsg');
-    const partKe       = document.getElementById('part-ke');
-    const partSa       = document.getElementById('part-sa');
-    const partVa       = document.getElementById('part-va');
-    const rollingWord  = document.getElementById('rollingWord');
-    const preloaderLogo= document.getElementById('preloaderLogo');
-    const loadingSystem= document.querySelector('.loading-system');
-    const navLogo      = document.getElementById('navLogo');
+    const preloader = document.getElementById('preloader');
+    const percentEl = document.getElementById('load-percent');
+    const fillEl = document.getElementById('progressFill');
+    const statusEl = document.getElementById('statusMsg');
+    const partKe = document.getElementById('part-ke');
+    const partSa = document.getElementById('part-sa');
+    const partVa = document.getElementById('part-va');
+    const rollingWord = document.getElementById('rollingWord');
+    const preloaderLogo = document.getElementById('preloaderLogo');
+    const loadingSystem = document.querySelector('.loading-system');
+    const navLogo = document.getElementById('navLogo');
 
     if (!preloader || !percentEl || !fillEl || !statusEl) return;
 
@@ -26,11 +26,11 @@
 
     // ── Telugu random character pool ──
     const teluguPool = [
-        'అ','ఆ','ఇ','ఈ','ఉ','ఊ','క','ఖ','గ','చ','జ','ట','డ','త',
-        'ద','న','ప','బ','మ','య','ర','ల','వ','శ','ష','స','హ',
-        'కా','గా','నా','రా','లా','వా','యా','తా','పా','సా','హా',
-        'కి','కీ','గి','చి','జి','ని','పి','బి','మి','రి','లి','వి',
-        'కు','గు','చు','జు','టు','డు','ను','పు','బు','మ','యు','రు'
+        'అ', 'ఆ', 'ఇ', 'ఈ', 'ఉ', 'ఊ', 'క', 'ఖ', 'గ', 'చ', 'జ', 'ట', 'డ', 'త',
+        'ద', 'న', 'ప', 'బ', 'మ', 'య', 'ర', 'ల', 'వ', 'శ', 'ష', 'స', 'హ',
+        'కా', 'గా', 'నా', 'రా', 'లా', 'వా', 'యా', 'తా', 'పా', 'సా', 'హా',
+        'కి', 'కీ', 'గి', 'చి', 'జి', 'ని', 'పి', 'బి', 'మి', 'రి', 'లి', 'వి',
+        'కు', 'గు', 'చు', 'జు', 'టు', 'డు', 'ను', 'పు', 'బు', 'మ', 'యు', 'రు'
     ];
 
     // Final locked glyphs
@@ -38,28 +38,28 @@
     const GLYPH_SA = 'శ';
     const GLYPH_VA = 'వ';
 
-    let count       = 0;
-    let keRolling   = true;
-    let saRolling   = true;
-    let vaRolling   = true;
-    let rollInterval= null;
+    let count = 0;
+    let keRolling = true;
+    let saRolling = true;
+    let vaRolling = true;
+    let rollInterval = null;
 
-    const totalTime   = 4000; // 4s total (1s English + 3s Telugu rolling)
-    const stepTime    = totalTime / 100;
-    const ROLL_SPEED  = 55;  // ms per Telugu char swap
-    const ENGLISH_PHASE = 1000; // ms to show static KESAVA before rolling
+    const totalTime = 4000; // 4s total (1s English + 3s Telugu rolling)
+    const stepTime = totalTime / 100;
+    const ROLL_SPEED = 55;  // ms per Telugu char swap
+    const ENGLISH_PHASE = 1000; // ms to show static KNR before rolling
 
-    // ── Phase 0: Show static English 'KESAVA' for 1 second ──
+    // ── Phase 0: Show static English 'KNR' for 1 second ──
     // (parts already contain KE / SA / VA from HTML — just style as English)
-    rollingWord.style.fontFamily   = "'Outfit', sans-serif";
+    rollingWord.style.fontFamily = "'Outfit', sans-serif";
     rollingWord.style.letterSpacing = '0.3em';
-    rollingWord.style.fontSize      = 'clamp(2rem, 5vw, 2.8rem)';
+    rollingWord.style.fontSize = 'clamp(2rem, 5vw, 2.8rem)';
 
     // ── Phase 1: Start Telugu rolling after 1s ──
     setTimeout(() => {
-        rollingWord.style.fontFamily    = "'Noto Sans Telugu', 'Outfit', sans-serif";
+        rollingWord.style.fontFamily = "'Noto Sans Telugu', 'Outfit', sans-serif";
         rollingWord.style.letterSpacing = '0.05em';
-        rollingWord.style.fontSize      = '';
+        rollingWord.style.fontSize = '';
 
         rollInterval = setInterval(() => {
             const rnd = () => teluguPool[Math.floor(Math.random() * teluguPool.length)];
@@ -115,8 +115,8 @@
     function runExitAnimation() {
 
         // 1. Measure source (rolling word) and target (navbar logo)
-        const srcRect  = rollingWord.getBoundingClientRect();
-        const navRect  = navLogo.getBoundingClientRect();
+        const srcRect = rollingWord.getBoundingClientRect();
+        const navRect = navLogo.getBoundingClientRect();
 
         // Font sizes: source is computed, target is the .logo CSS (1.3rem → 20.8px default)
         const srcFontSize = parseFloat(window.getComputedStyle(rollingWord).fontSize);
@@ -130,10 +130,10 @@
         fly.className = 'flying-text';
         fly.textContent = 'కేశవ';
         fly.style.fontSize = srcFontSize + 'px';
-        fly.style.top      = srcRect.top  + 'px';
-        fly.style.left     = srcRect.left + 'px';
-        fly.style.transform= 'translate(0, 0) scale(1)';
-        fly.style.opacity  = '1';
+        fly.style.top = srcRect.top + 'px';
+        fly.style.left = srcRect.left + 'px';
+        fly.style.transform = 'translate(0, 0) scale(1)';
+        fly.style.opacity = '1';
         document.body.appendChild(fly);
 
         // 3. Fade background and progress/status
@@ -145,14 +145,14 @@
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 // Target top-left of the navLogo element
-                const tgtTop  = navRect.top  + (navRect.height - srcFontSize * scaleRatio) / 2;
+                const tgtTop = navRect.top + (navRect.height - srcFontSize * scaleRatio) / 2;
                 const tgtLeft = navRect.left;
 
                 const dx = tgtLeft - srcRect.left;
-                const dy = tgtTop  - srcRect.top;
+                const dy = tgtTop - srcRect.top;
 
                 fly.style.transform = `translate(${dx}px, ${dy}px) scale(${scaleRatio})`;
-                fly.style.opacity   = '0';  // fade out just before landing (handled by CSS delay)
+                fly.style.opacity = '0';  // fade out just before landing (handled by CSS delay)
             });
         });
 
@@ -173,74 +173,73 @@
         }, { once: true });
     }
 
-    // ── Continuous bilingual name + greeting flip ────────────────────────────
+    // ── Continuous bilingual name + greeting slide-swap ──────────────────────
     function startNameFlip(el) {
         const greetingEl = document.getElementById('greetingText');
 
-        const TELUGU_NAME     = 'కేశవ';
-        const ENGLISH_NAME    = 'KESAVA';
+        const TELUGU_NAME = 'కేశవ';
+        const ENGLISH_NAME = 'KESAVA';
         const TELUGU_GREETING = 'నమస్కారం నేను';
-        const ENGLISH_GREETING= "Hi, I'm";
+        const ENGLISH_GREETING = "Hi, I'm";
 
         const FLIP_INTERVAL = 3500; // ms between language switches
-        const FLIP_DURATION = 350;  // ms = half the flip (match CSS transition)
+        const FLIP_DURATION = 400;  // ms for slide-out (match CSS transition)
 
         let isTeluguNow = true;
 
         // ── Initial state: Telugu ──
-        el.textContent      = TELUGU_NAME;
+        el.textContent = TELUGU_NAME;
         el.style.fontFamily = "'Noto Sans Telugu', 'Outfit', sans-serif";
         el.style.fontWeight = '800';
 
         if (greetingEl) {
-            greetingEl.textContent  = TELUGU_GREETING;
+            greetingEl.textContent = TELUGU_GREETING;
             greetingEl.style.fontFamily = "'Noto Sans Telugu', 'Outfit', sans-serif";
             greetingEl.style.letterSpacing = '0';
         }
 
         setInterval(() => {
-            // ── Phase A: hide logo (rotateY) + slide greeting out (left) ──
+            // ── Phase A: slide logo UP + fade out; slide greeting out (left) ──
             el.classList.add('flip-hide');
             if (greetingEl) greetingEl.classList.add('slide-exit');
 
             setTimeout(() => {
-                // Swap language
+                // Swap content while logo is invisible
                 isTeluguNow = !isTeluguNow;
 
                 if (isTeluguNow) {
-                    // Logo → Telugu
-                    el.textContent      = TELUGU_NAME;
+                    el.textContent = TELUGU_NAME;
                     el.style.fontFamily = "'Noto Sans Telugu', 'Outfit', sans-serif";
-                    el.style.fontWeight = '800';
-                    // Greeting → Telugu
                     if (greetingEl) {
-                        greetingEl.textContent     = TELUGU_GREETING;
+                        greetingEl.textContent = TELUGU_GREETING;
                         greetingEl.style.fontFamily = "'Noto Sans Telugu', 'Outfit', sans-serif";
                         greetingEl.style.letterSpacing = '0';
                     }
                 } else {
-                    // Logo → English
-                    el.textContent      = ENGLISH_NAME;
+                    el.textContent = ENGLISH_NAME;
                     el.style.fontFamily = "'Outfit', sans-serif";
-                    el.style.fontWeight = '800';
-                    // Greeting → English
                     if (greetingEl) {
-                        greetingEl.textContent     = ENGLISH_GREETING;
+                        greetingEl.textContent = ENGLISH_GREETING;
                         greetingEl.style.fontFamily = "'Outfit', sans-serif";
                         greetingEl.style.letterSpacing = '1px';
                     }
                 }
 
-                // ── Phase B: logo flips back in ──
-                el.classList.remove('flip-hide');
+                // ── Phase B: snap logo below viewport (no transition), then slide up in ──
+                el.classList.remove('flip-hide');   // remove exit state
+                el.classList.add('flip-enter');     // snap to below (transition:none via CSS)
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        // Re-enable transition and slide to natural position
+                        el.classList.remove('flip-enter');
+                    });
+                });
 
                 // ── Phase B: greeting slides in from right ──
                 if (greetingEl) {
-                    // 1. Remove exit class, snap to right (no transition)
                     greetingEl.classList.remove('slide-exit');
                     greetingEl.classList.add('slide-enter');
-
-                    // 2. Next frame: restore transition and slide to center
                     requestAnimationFrame(() => {
                         requestAnimationFrame(() => {
                             greetingEl.classList.remove('slide-enter');
@@ -253,16 +252,17 @@
 
 })();
 
-// Mobile Navigation Toggle
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
+function toggleMobileMenu() {
     navLinks.classList.toggle("active");
     hamburger.classList.toggle("active");
-});
+}
 
-// Close mobile menu when a link is clicked
+hamburger.addEventListener("click", toggleMobileMenu);
+
+// Close when a nav link is clicked
 document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
     navLinks.classList.remove("active");
     hamburger.classList.remove("active");
@@ -403,11 +403,11 @@ document.querySelectorAll('.project-card, .cert-card').forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         // Update Aurora Glow Position
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
-        
+
     });
 
     card.addEventListener('mouseleave', () => {
@@ -574,7 +574,7 @@ if (btnWrapper && submitBtn && contactForm) {
     const resumeSection = document.getElementById('resume');
     const identityCard = document.querySelector('.resume-card-identity');
     const dashboardMain = document.querySelector('.resume-dashboard-main');
-    
+
     if (!resumeSection || !identityCard || !dashboardMain) return;
 
     // Metric Widgets Micro-interaction

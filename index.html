@@ -51,7 +51,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#training">Training</a></li>
-            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#certifications">Certs & Achievements</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#resume">Resume</a></li>
             <li><a href="#contact" class="btn-contact">Contact</a></li>
@@ -470,8 +470,20 @@
         </section>
 
         <section id="certifications" class="certifications section reveal-on-scroll">
-            <h2 class="section-title">Certifications</h2>
+            <h2 class="section-title">Certifications & Achievements</h2>
             <div class="projects-grid">
+                <div class="cert-card glass stagger-item" onclick="openModal('certModal5')">
+                    <div class="cert-bg-glow" style="--cert-glow-color: hsl(38, 92%, 50%);"></div>
+                    <div class="cert-icon-wrapper">
+                        <div class="cert-icon" style="color: hsl(38, 92%, 50%);"><i class="fa-solid fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>National Financial Literacy Quiz 2026</h3>
+                        <p class="cert-issuer">Dept. of Management, School of Management & Commerce</p>
+                        <div class="cert-date-badge"><i class="fa-regular fa-calendar-check"></i> March 25, 2026</div>
+                    </div>
+                </div>
                 <div class="cert-card glass stagger-item" onclick="openModal('certModal3')">
                     <div class="cert-bg-glow"></div>
                     <div class="cert-icon-wrapper">
@@ -561,6 +573,31 @@
         </section>
 
         <!-- Certification Modals -->
+        <!-- Modal 5: National Financial Literacy Quiz -->
+        <div id="certModal5" class="modal">
+            <div class="modal-content glass">
+                <span class="close-modal" onclick="closeModal('certModal5')">&times;</span>
+                <div class="modal-header">
+                    <div class="cert-icon large-icon" style="color: hsl(38, 92%, 50%);"><i
+                            class="fa-solid fa-trophy"></i></div>
+                    <h3>National Financial Literacy Quiz 2026</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Achievement Details</h4>
+                    <ul>
+                        <li>Participated in the National Financial Literacy Quiz 2026 (College Round)</li>
+                        <li>Issued by the Department of Management, School of Management and Commerce (UG Category)</li>
+                        <li>Issued on: March 25, 2026</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a href="Certificate_7981732864_25032026073516.pdf" target="_blank"
+                        class="btn-project-link primary">
+                        <span>View Certificate <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div id="certModal1" class="modal">
             <div class="modal-content glass">
                 <span class="close-modal" onclick="closeModal('certModal1')">&times;</span>
